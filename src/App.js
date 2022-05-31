@@ -1,7 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get('https://mern-hnma-demo.herokuapp.com/users');
+
+      console.log('result ', result);
+    }
+
+    fetchData().catch(console.error);
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
